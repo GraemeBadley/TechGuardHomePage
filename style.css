@@ -4,9 +4,9 @@
     padding: 0;
 }
 
-body{
-    width: 100%;
-    height: 100%;
+html, body{
+    min-width: 100vw;
+    min-height: 100vh;
 }
 
 /* Header */
@@ -14,41 +14,72 @@ header{
     position: fixed;
     background-color: rgb(23, 23, 23);
     height: 5rem;
-    width: 100%;
+    width: 100vw;
     display: inline-flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 1em;
 }
 
 nav{
+    flex-shrink: 1;
     width: 30%;
     font-size: 1.25rem;
 }
 
-#nav-links > li > a{
+.nav-links > li > a{
     color: white;
     text-decoration: none;
-
 }
 
-#nav-links{
+.nav-links{
     display: flex;
     justify-content: space-evenly;
     width: 100%;
     font-family: 'Montserrat', sans-serif;
     list-style: none;
 }
-#nav-links > li > a:hover{
+.nav-links > li > a:hover{
     color: blue;
 }
 
+.hamburger-icon{
+    display: none;
+}
+
+@media (max-width: 1024px) {
+
+    .hamburger-icon{
+        display:flex;
+        height: 1em;
+        justify-self: flex-end;
+        margin-right: 50px;
+    }
+
+    nav{
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .nav-links{
+        display: none;
+    }
+}
+
+@media (max-width:420px) {
+    .logo-title > h1{
+        display: none;
+    }
+    
+}
 
 #logo{
     height: 90%;
     width: auto;  
 }
 
-#logo-title{
+.logo-title{
+    flex-shrink: 1;
     height: 100%;
     display: flex;
     color: white;
@@ -58,22 +89,74 @@ nav{
 /* Banner */
 
 .banner{
-    padding: 10rem;
+    width: 100vw;
+    height: 90vh;
     background-image: url(./images/3047867.jpg);
-    background-position: center;
-    background-size:cover;
     background-repeat: no-repeat;
-    min-height: 30%;
-    width: 100%;
+    background-size: cover;
+    background-position: left;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.banner-slogan{
+    color: rgba(229, 202, 29, 1);
+    font-family: 'Raleway';
+    padding-left: 60px;
+    max-width: 700px;
+    font-size: 3rem;
+    font-weight: 800;
 }
 
-.banner-slogan{
-    text-align: center;
-    margin-left: 50%;
-    padding: 3.5rem 0;
-    color: white;
-    font-size: 3.5rem;
-    min-height: 100px;
-    width: 50%;
-    font-family: 'Raleway', sans-serif;
+@media (max-width: 1024px) {
+
+    .banner-slogan{
+        padding-left: 0px;
+        max-width: 500px;
+    }
+}
+
+.services{
+    width: 100vw;
+    padding: 20vh 0;
+}
+.services h2{
+    margin: 0 auto;
+    width: 80%;
+    font-family: 'Serif';
+    font-size: 2.5rem;
+}
+
+.cards{
+    margin: 5vh auto;
+    width: 80%;
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.service-card{
+    color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    align-items: end;
+    flex-grow: 1;
+    height: 50vh;
+}
+
+.service-card h3{
+    padding: 10px;
+    font-family: 'Open Sans', sans-serif;
+    background-color: rgba(0, 0, 0, 0.9);
+    width: 100%;
+    height: 30%;
+    display: flex;
+    align-items: end;
+}
+
+.encryption{
+    background-image: url(images/encryption_1.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
